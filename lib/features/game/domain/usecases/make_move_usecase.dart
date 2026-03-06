@@ -1,0 +1,13 @@
+import 'package:tictactoe_app/features/game/domain/entities/game_state_entity.dart';
+
+class MakeMoveUsecase {
+  GameStateEntity call({required GameStateEntity state, required int index}) {
+    List<String> board = List.from(state.board);
+    board[index] = state.currentPlayer;
+    return GameStateEntity(
+      board: board,
+      currentPlayer: state.currentPlayer,
+      isGameOver: state.isGameOver,
+    );
+  }
+}
