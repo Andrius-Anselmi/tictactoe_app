@@ -6,7 +6,6 @@ class MakeMoveUsecase {
     board[index] = state.currentPlayer;
     return GameStateEntity(
       board: board,
-      //se a jogada anterio foi do X, currentePlayer = O, se não X
       currentPlayer: state.currentPlayer == "X" ? "O" : "X",
       isGameOver: state.isGameOver,
     );
