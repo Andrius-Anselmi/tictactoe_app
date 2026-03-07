@@ -38,8 +38,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         ),
       ),
     );
-    if (stateMove.winner == null) {
-      botMoveUseCase.call(stateMove.board);
+    if (winner == null) {
+      var indexBot = botMoveUseCase.call(stateMove.board);
+      var stateBot = makeMoveUseCase.call(state: state.entity, index: indexBot);
+      emit(GameState(entity: stateBot));
     }
   }
 
